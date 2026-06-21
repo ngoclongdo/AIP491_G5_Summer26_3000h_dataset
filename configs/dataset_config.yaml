@@ -1,0 +1,88 @@
+# Config for Vietnamese ASR Dataset Preprocessing
+# All processed audio will be saved as 16kHz mono WAV files.
+
+# Output root directory for processed datasets
+output_dir: "data/processed"
+cache_dir: "data/raw_cache"
+
+# List of datasets to process
+datasets:
+  - name: "fleurs"
+    path: "google/fleurs"
+    config: "vi_vn"
+    gated: false
+    splits: ["train", "validation", "test"]
+    column_mapping:
+      audio: "audio"
+      text: "raw_transcription"
+      id: "id"
+
+  - name: "gigaspeech2_vie"
+    path: "doof-ferb/gigaspeech2_vie"
+    config: "default"
+    gated: false
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "sentence"
+      id: "id"
+
+  - name: "viet_bud500"
+    path: "linhtran92/viet_bud500"
+    config: "default"
+    gated: true
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "text"
+      id: "id"
+
+  - name: "VietMed_labeled"
+    path: "doof-ferb/VietMed_labeled"
+    config: "default"
+    gated: false
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "text"
+      id: "id"
+
+  - name: "VietSpeech"
+    path: "NhutP/VietSpeech"
+    config: "default"
+    gated: true
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "text"
+      id: "id"
+
+  - name: "viVoice"
+    path: "doof-ferb/viVoice"
+    config: "default"
+    gated: true
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "text"
+      id: "speaker"  # Used for grouping/ID if unique sample id is missing
+
+  - name: "fpt_fosd"
+    path: "doof-ferb/fpt_fosd"
+    config: "default"
+    gated: false
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "sentence"
+      id: "id"
+
+  - name: "vlsp2020_vinai_100h"
+    path: "doof-ferb/vlsp2020_vinai_100h"
+    config: "default"
+    gated: false
+    splits: ["train"]
+    column_mapping:
+      audio: "audio"
+      text: "sentence"
+      id: "id"
